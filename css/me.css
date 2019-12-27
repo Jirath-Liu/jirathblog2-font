@@ -1,0 +1,54 @@
+*{
+    font-family: Consolas;
+}
+header{
+    height: 20%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+header .container{
+    position: center;
+    padding-right: 30%;
+    text-align: center;
+    color: #4e555b;
+}
+header .container h1{
+    font-size: 80px;
+    padding-top: 5%;
+}
+header .container .subheading{
+
+    text-align: left;
+    font-weight: bold;
+    font-size: 30px;
+    color: #ffffff;
+}
+.introduce{
+    padding-top: 3%;
+    color: white;
+    padding-left: 26%;
+    padding-right: 26%;
+}
+.introduce h2{
+    padding-top: 2%;
+    font-size: 42px;
+}
+.introduce p{
+    font-size: 25px;
+}
+.introduce hr{
+    margin-top: 7px;/*解决ie和ff margin-top不一致问题*/
+    *margin: 0;/**/
+    border: 0;/*是去掉fierfoxf的一条阴影线*/
+    color: black; /*是设置ie老版本水平线的颜色；*/
+    background-color: black;/* 设置fierfox 下水平线的高度*/
+    height: 3px;/* 水平高度*/
+}
+.introduce ul{
+    font-size: 20px;
+    list-style-type: lower-greek;
+}
+a:link {color: black}
+a:visited {color: black}
+a:hover {color: #0000FF}
+a:active {color: #0000FF}

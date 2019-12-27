@@ -1,0 +1,60 @@
+body {
+  color: white;
+}
+
+h1{
+  padding-top: 15%;
+  position: center;
+  font-family: 'Open Sans';
+  font-size: 75px;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+}
+.banner{
+  position: center;
+  margin: 0;
+  padding: auto;
+  height: 60%;
+}
+.banner h1{
+  margin-top:10px;
+  font-family:Consolas;
+  font-weight: bold;
+  font-size: 4rem;
+  color:#fff;
+  letter-spacing: 4px;
+}
+#button{
+  text-align: center;
+  padding: auto;
+  margin: 5%;
+  left: 45%;
+}
+
+#enterButton {
+  height: 50px;
+  width: 150px;
+  background: dodgerblue;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 100px;
+  font-weight: bold;
+}
+
+footer {
+  margin: 0;
+  border: 0;
+  left: 0%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  color: white;
+  background-color: black;
+}
+
+footer p{
+  margin-top: 10px
+}
