@@ -1,0 +1,43 @@
+#root {
+    width: 70%;
+    height: 98%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 2%;
+    background-color: white;
+    #background-color: #e0e0e0;
+}
+.btns{
+    font-family: Consolas;
+    text-align: center;
+    padding: 1%;
+}
+
+.btns button{
+    height: 25px;
+    width: 150px;
+    background: dodgerblue;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 100px;
+    font-weight: bold;
+}
+
+.sunbmit{
+    margin-top: 1%;
+    margin-left: 5%;
+    font-family: Consolas;
+    text-align: left;
+    padding: 1%;
+}
+#submit{
+    height: 25px;
+    width: 120px;
+    background: green;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 100px;
+    font-weight: bold;
+}
