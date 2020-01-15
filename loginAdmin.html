@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery.min.js"></script>
+    <title>管理员登录</title>
+</head>
+
+<body>
+    <div id="root">
+        <table>
+            <caption>欢迎回来，管理员</caption>
+            <tr>
+                <td width="120">用户名：</td>
+                <td><input type="text" class="inp" placeholder="请输入用户名" id="account" /></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" class="inp" placeholder="请输入密码" id="password" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" class="login" value="登录" onclick="doLogin()" /></td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+<script>
+    function send(data) {
+        $.ajax({
+            //请求方式
+            type: "POST",
+            //请求的媒体类型,
+            contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+            //数据，json字符串
+            url: "http://localhost/loginAccount",
+            data: data,
+            success: function (msg) {
+                console.info(msg);
+                //跳转
+                if (msg.code == 100) {
+                    document.getElementById("root").innerHTML="<h1>登录成功</h1>";
+                } else if(msg.code==301){
+                    document.getElementById("account").value="账号不存在";
+                }else if(msg.code==302){
+                    document.getElementById("password").value="密码错误";
+                }else{
+                    window.location = "./error.html";
+                }
+            }
+        });
+    }
+
+    function doLogin() {
+        var data = {
+            account: document.getElementById("account").value,
+            password: document.getElementById("password").value
+        }
+        send(data);
+    }
+</script>
+
+</html>
