@@ -34,7 +34,7 @@
 
     p {
       margin: 0 auto;
-      width: 280px;
+      width: 400px;
     }
 
     @media only screen and (max-width: 280px) {
@@ -51,11 +51,61 @@
 
     }
   </style>
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/backGround.css" />
+  <link rel="stylesheet" href="css/blog.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="./lib/vue.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <h1>Page Not Found</h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
+<div id="wrapper" style="left:0;">
+  <!-- 侧边栏 -->
+  <div class="sidebar">
+      <div class="headSculpture">
+          <img src="img/sidebar/jirathHead.jpg" alt="">
+          <p>Jirath</p>
+      </div>
+      <div class="option">
+          <ul>
+              <li>
+                  <p onclick="window.location='./index.html'">首页</p>
+              </li>
+              <li>
+                  <p onclick="window.location='./main.html'">主页</p>
+              </li>
+              <li>
+                <p onclick="window.location='./allblog.html'">博客</p>
+              </li>
+              <li>
+                  <p onclick="window.location='./me.html'">个人简介</p>
+              </li>
+              <li>
+                  <p onclick="window.location='./shire.html'">资源分享</p>
+              </li>
+              <li>
+                  <p onclick="window.location='./photo.html'">图片集</p>
+              </li>
+              <li>
+                  <p onclick="window.location='./loginAdmin.html'">管理员登录</p>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <!-- 侧边栏按钮 -->
+  <button id="openSidebar"></button>
+</head>
+
+<body>
+  <div style="text-align: center;margin-top: 5%;">
+    <h1 style="color: white;font-size: 50px;">Page Not Found</h1>
+    <p style="font-size: 35px;">Sorry, but the page you were trying to view does not exist.</p>
+    <img src="./img/errorImg/404.jpg">
+  </div>
+  
 </body>
 
 </html>

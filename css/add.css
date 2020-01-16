@@ -1,11 +1,13 @@
+*,*::before,*::after{
+    box-sizing:border-box;
+}
 #root {
-    width: 70%;
+    width: 88%;
     height: 98%;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 6%;
+    margin-right: 6%;
     margin-top: 2%;
     background-color: white;
-    #background-color: #e0e0e0;
 }
 .btns{
     font-family: Consolas;
@@ -40,4 +42,16 @@
     border: none;
     border-radius: 100px;
     font-weight: bold;
+}
+
+#psgMsg {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+#psgMsg p{
+    margin: 0;
+}
+#psgMsg input{
+    width: 80%;
 }

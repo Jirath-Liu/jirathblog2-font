@@ -1,4 +1,14 @@
-.banner h1{
+*,*::before,*::after{
+    box-sizing:border-box;
+}
+
+.label{
+    text-align: center;
+}
+.label h1{
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
     margin-top:10px;
     font-family:Consolas;
     font-weight: bold;
@@ -6,19 +16,10 @@
     color:#fff;
     letter-spacing: 4px;
 }
-#carouse {
-    max-height: 15%;
-    max-width: 30%;
-    margin-right: 3%;
-    margin-left: 5%;
-}
 
 .introduce{
-    float: left;
     color: white;
-}
-.introduce h2{
-    font-size: 50px;
+} .introduce h2{
     font-family: Consolas;
 }
 .introduce p{
@@ -27,66 +28,43 @@
 }
 hr{
     background-color: white;
-    border: 5px;
 }
-#text{
 
+#title{
+    text-align: center;
 }
-#message-board {
-    border: 5px;
-    border-color: #ba8b00;
-    margin-left: 8%;
-}
-#message-board .title{
-
-}
-#message-board .content{
-
-    border: 200px;
-    solid-color: #ba8b00;
-    padding-bottom:100%;
-    height: 230%;
-    width: 200%;
-    background-color: #6c757d;
-    text-align: left;
-}
-.leave-message{
-    padding-right: 50%;
-    text-align: left;
-    margin-top: 5%;
-    padding-top: 2%;
-}
-.leave-message input{
-    float: left;
-}
-.leave-message button{
-    height: 28px;
-    width: 59px;
+.button-black{
+    position: relative;
+    height: 2rem; 
+    width: 3rem;
     background: black;
     color: white;
-    font-size: 10px;
+    font-size: 1rem;
     border: none;
     border-radius: 100px;
     font-weight: bold;
     float: left;
 }
-.passage{
-
-    float: left;
-    padding: 5%;
-    clear: both;
-
+.psg{
+    margin-top: 8%;
 }
 .passage .new{
-    margin-right: 100px;
+    
     background-color: white;
-    float: left;
+    word-break:break-all; 
+	word-wrap:break-word;
 }
 .passage .recommend{
-
     background-color: white;
-    float: left;
+    word-break:break-all; 
+	word-wrap:break-word;
 }
 .passage strong{
 font-size: 36px;
+} 
+.hover-change{
+    transition: 0.5s;
+}
+.hover-change:hover{
+    transform: scale(1.2);
 }

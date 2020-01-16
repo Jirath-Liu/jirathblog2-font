@@ -9,11 +9,16 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/backGround.css" />
     <link rel="stylesheet" href="css/blog.css">
+<!--    <link rel="stylesheet" href="css/github.css">-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/editormd.logo.min.css">
+    <link rel="stylesheet" href="css/editormd.min.css">
+    <link rel="stylesheet" href="css/editormd.preview.min.css">
     <script src="./lib/vue.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/sidebar.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="lib/showdown.min.js"></script>
 </head>
 
 <body>
@@ -33,7 +38,7 @@
                     <p onclick="window.location='./main.html'">主页</p>
                 </li>
                 <li>
-                    <p onclick="window.location='https://me.csdn.net/weixin_44494373'">博客</p>
+                    <p onclick="window.location='./allblog.html'">博客</p>
                 </li>
                 <li>
                     <p onclick="window.location='./me.html'">个人简介</p>
@@ -54,11 +59,15 @@
     <button id="openSidebar"></button>
     <!-- 内容区域 -->
     <div id="root">
-
+        <div class="title">
+            <h1>{{title}}</h1>
+            <hr>
+        </div>
+    <div id="content" v-html="content"></div> 
     </div>
 </div>
 
 </body>
-
+<script src="js/blogContent.js"></script>
 
 </html>

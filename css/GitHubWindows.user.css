@@ -94,7 +94,7 @@
     --image-config: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAM1BMVEUAAABmZgCZmZn/+/Dn59aZmQD//5kzMwAcHBzAwMDMzGZNTU0AAADq6upmZmYzAACtqZA/egufAAAAAXRSTlMAQObYZgAAAHJJREFUGNNNzVESgyAMRVEu8QVLBdz/aosU1DvDzyGThPgURtG22XfBZ9/3uJU3mMU18QC8oC/EjBvOlE5cBGleoegCGQvEBWhCcneycDcGkPAM2cUETG6eZceAgolmudElhForJOBooPCP1F//XLBw9APHJgNeldevuwAAAABJRU5ErkJggg==');
   }
 
-  .content {
+  #content {
     background: var(--color-button-face) !important;
     font: var(--font) !important;
     color: var(--color-button-text) !important;
@@ -151,7 +151,7 @@
   .header-search-key-slash {
     display: none !important;
   }
-  .content h1, h2, h3, h4, h5, h6 {
+  #content h1, h2, h3, h4, h5, h6 {
     border: none !important;
   }
 

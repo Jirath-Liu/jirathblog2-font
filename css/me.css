@@ -1,6 +1,9 @@
 *{
     font-family: Consolas;
 }
+*,*::before,*::after{
+    box-sizing:border-box;
+}
 header{
     height: 20%;
     background-repeat: no-repeat;

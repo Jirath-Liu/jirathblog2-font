@@ -7,8 +7,14 @@ $(function () {
             'left': 220
          });
          $(this).css('transform', 'rotate(450deg)');
-         $('.headSculpture img').addClass('img');
+         
+         setTimeout(function () {
+            $('.headSculpture img').addClass('img');
          $('.headSculpture p').addClass('opacity');
+            $('.sidebar').offset(({
+               'left': 0
+            }));
+         }, 400);
          setTimeout(function () {
             $('.option ul>li').addClass('li');
          }, 600)
@@ -16,6 +22,9 @@ $(function () {
          $('#wrapper').offset({
             'left': 0
          });
+         $('.sidebar').offset(({
+            'left': -220
+         }))
          $(this).css('transform', 'rotate(0deg)');
          setTimeout(function () {
             $('.headSculpture img').removeClass('img');

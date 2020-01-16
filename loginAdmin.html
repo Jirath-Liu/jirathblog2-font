@@ -5,28 +5,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jirath博客|登录</title>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/backGround.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="./lib/vue.js"></script>
     <script src="js/jquery.min.js"></script>
-    <title>管理员登录</title>
+    <script src="js/sidebar.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <div id="root">
-        <table>
-            <caption>欢迎回来，管理员</caption>
-            <tr>
-                <td width="120">用户名：</td>
-                <td><input type="text" class="inp" placeholder="请输入用户名" id="account" /></td>
-            </tr>
-            <tr>
-                <td>密码：</td>
-                <td><input type="password" class="inp" placeholder="请输入密码" id="password" /></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="button" class="login" value="登录" onclick="doLogin()" /></td>
-            </tr>
-        </table>
+    <div id="wrapper" style="left:0;">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="headSculpture">
+                <img src="img/sidebar/jirathHead.jpg" alt="">
+                <p>Jirath</p>
+            </div>
+            <div class="option">
+                <ul>
+                    <li>
+                        <p onclick="window.location='./index.html'">首页</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./main.html'">主页</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./allblog.html'">博客</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./me.html'">个人简介</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./shire.html'">资源分享</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./photo.html'">图片集</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./loginAdmin.html'">管理员登录</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 侧边栏按钮 -->
+        <button id="openSidebar"></button>
+        <div id="root" class="container">
+            <div class="row label">
+                <h1 class="row">JirathBlog|主人登录</h1>
+            </div>
+            <hr>
+            <div class="row align-items-center justify-content-around shadow-lg p-3 mb-5 bg-white rounded">
+
+                <table class="container">
+                    <tr class="row align-items-center justify-content-around">
+                        <td width="120" class="col-4" style="font-size: 1.5rem;">用户名：</td>
+                        <td class="col-4"><input type="text" class="inp" placeholder="请输入用户名" id="account" /></td>
+                    </tr>
+                    <tr class="row align-items-center justify-content-around">
+                        <td class="col-4" style="font-size: 1.5rem;">密码：</td>
+                        <td class="col-4"><input type="password" class="inp" placeholder="请输入密码" id="password" /></td>
+                    </trclass="row">
+                    <tr class="row align-items-center justify-content-around" style="margin-top: 3%;">
+                        <td ><input type="button" class="login" value="登录" onclick="doLogin()" /></td>
+                    </trclass="row">
+                </table>
+
+
+            </div>
+
+        </div>
     </div>
-    
 </body>
 <script>
     function send(data) {
@@ -37,17 +88,20 @@
             contentType: "application/x-www-form-urlencoded;charset=UTF-8",
             //数据，json字符串
             url: "http://localhost/loginAccount",
+            xhrFields: {
+                withCredentials: true
+            },
             data: data,
             success: function (msg) {
                 console.info(msg);
                 //跳转
                 if (msg.code == 100) {
-                    document.getElementById("root").innerHTML="<h1>登录成功</h1>";
-                } else if(msg.code==301){
-                    document.getElementById("account").value="账号不存在";
-                }else if(msg.code==302){
-                    document.getElementById("password").value="密码错误";
-                }else{
+                    window.alert("登陆成功");
+                } else if (msg.code == 301) {
+                    document.getElementById("account").value = "账号不存在";
+                } else if (msg.code == 302) {
+                    document.getElementById("password").value = "密码错误";
+                } else {
                     window.location = "./error.html";
                 }
             }

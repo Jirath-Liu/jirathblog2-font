@@ -1,9 +1,12 @@
 body {
 	width: 100wh;
 	height: 90vh;
+	background-attachment: fixed !important;
 	color: #fff;
-	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	/*#EE7752, #E73C7E, #23A6D5, #23D5AB*/
+	background: linear-gradient(-45deg, #c2185b,#1976d2,#0097a7);
 	background-size: 400% 400%;
+	background-repeat:no-repeat;
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;

@@ -1,3 +1,15 @@
+function getInnerText(html) {
+
+    var con = html.replace("/\s*/g", ""); //去掉空格
+    var res = con.replace("/<[^>]+>/g", ""); //去掉所有的html标记
+    var res1 = res.replace("/↵/g", ""); //去掉所有的↵符号
+    var res2 = res1.replace("/[\r\n]/g", "") //去掉回车换行
+    if (res2.length > 30) {
+        res2 = res2.substring(0, 30) + "..."
+    }
+
+    return res2;
+}
 window.onload = function () {
     var linkHead = "http://localhost";
     var new_msg = {
@@ -6,32 +18,19 @@ window.onload = function () {
         text: "unknow text"
     };
     var recommend_msg = {
-        link: linkHead + "/404.html",
+        link: "./404.html",
         title: "unknow title",
         text: "unknow text"
     };
     var vue_new = new Vue({
         el: '#new',
         data: new_msg,
-        methods: {
-            jump: function(clicked){
-                if(clicked){
-                    window.location=new_msg.link;
-                }
-            }
-        }
-    })
+
+    });
     var vue_recommend = new Vue({
         el: '#recommend',
         data: recommend_msg,
-        methods: {
-            jump: function(clicked){
-                if(clicked){
-                    window.location=recommend_msg.link;
-                }
-            }
-        }
-    })
+    });
 
     function loadNew() {
         $.ajax({
@@ -39,15 +38,15 @@ window.onload = function () {
             type: "POST",
             //请求的媒体类型
             contentType: "json",
-            //数据，json字符串
+            //解决session不同
+            xhrFields: {
+                withCredentials: true
+            },
             url: linkHead + "/blog/latest",
             success: function (msg) {
                 if (msg.code == 100) {
+                    var content = getInnerText(msg.data.blogContent);
                     new_msg.link = "./blog.html?id=" + msg.data.blogId;
-                    var content = msg.data.blogContent;
-                    if (content.length > 30) {
-                        content = content.substring(0, 30) + "..."
-                    }
                     new_msg.title = msg.data.blogTitle;
                     new_msg.text = content;
                 }
@@ -65,12 +64,9 @@ window.onload = function () {
             url: linkHead + "/blog/recommend",
             success: function (msg) {
                 if (msg.code == 100) {
-
+                    msg.data.blogContent = getInnerText(msg.data.blogContent);
                     var content = msg.data.blogContent;
-                    if (content.length > 30) {
-                        content = content.substring(0, 30) + "..."
-                    }
-                    recommend_msg.link="./blog.html?id=" + msg.data.blogId;
+                    recommend_msg.link = "./blog.html?id=" + msg.data.blogId;
                     recommend_msg.title = msg.data.blogTitle;
                     recommend_msg.text = content;
                 }

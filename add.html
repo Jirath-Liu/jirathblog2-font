@@ -19,151 +19,194 @@
 </head>
 
 <body>
-<div id="wrapper" style="left:0;">
-    <!-- 侧边栏 -->
-    <div class="sidebar">
-        <div class="headSculpture">
-            <img src="img/sidebar/jirathHead.jpg" alt="">
-            <p>Jirath</p>
-        </div>
-        <div class="option">
-            <ul>
-                <li>
-                    <p onclick="window.location='./index.html'">首页</p>
-                </li>
-                <li>
-                    <p onclick="window.location='./main.html'">主页</p>
-                </li>
-                <li>
-                    <p onclick="window.location='https://me.csdn.net/weixin_44494373'">博客</p>
-                </li>
-                <li>
-                    <p onclick="window.location='./me.html'">个人简介</p>
-                </li>
-                <li>
-                    <p onclick="window.location='./shire.html'">资源分享</p>
-                </li>
-                <li>
-                    <p onclick="window.location='./photo.html'">图片集</p>
-                </li>
-                <li>
-                    <p onclick="window.location='./loginAdmin.html'">管理员登录</p>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- 侧边栏按钮 -->
-    <button id="openSidebar"></button>
-    <!-- 内容区域 -->
-    <div id="root">
-        <div id="layout">
-            <div class="btns">
-                <button id="show-btn">Show editor</button>
-                <button id="hide-btn">Hide editor</button>
-                <button id="get-md-btn">Get Markdown</button>
-                <button id="get-html-btn">Get HTML</button>
-                <button id="watch-btn">Watch</button>
-                <button id="unwatch-btn">Unwatch</button>
-                <button id="preview-btn">Preview HTML (Press Shift + ESC cancel)</button>
-                <button id="fullscreen-btn">Fullscreen (Press ESC cancel)</button>
-                <button id="show-toolbar-btn">Show toolbar</button>
-                <button id="close-toolbar-btn">Hide toolbar</button>
-                <button id="toc-menu-btn">ToC Dropdown menu</button>
-                <button id="toc-default-btn">ToC default</button>
+    <div id="wrapper" style="left:0;">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="headSculpture">
+                <img src="img/sidebar/jirathHead.jpg" alt="">
+                <p>Jirath</p>
             </div>
-            <div class="sunbmit"><button id="submit">Submit</button></div>
+            <div class="option">
+                <ul>
+                    <li>
+                        <p onclick="window.location='./index.html'">首页</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./main.html'">主页</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./allblog.html'">博客</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./me.html'">个人简介</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./shire.html'">资源分享</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./photo.html'">图片集</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./loginAdmin.html'">管理员登录</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 侧边栏按钮 -->
+        <button id="openSidebar"></button>
+        <!-- 内容区域 -->
+        <div id="root">
+            <div id="layout">
+                <div class="btns">
+                    <button id="show-btn">Show editor</button>
+                    <button id="hide-btn">Hide editor</button>
+                    <button id="get-md-btn">Get Markdown</button>
+                    <button id="get-html-btn">Get HTML</button>
+                    <button id="watch-btn">Watch</button>
+                    <button id="unwatch-btn">Unwatch</button>
+                    <button id="preview-btn">Preview HTML (Press Shift + ESC cancel)</button>
+                    <button id="fullscreen-btn">Fullscreen (Press ESC cancel)</button>
+                    <button id="show-toolbar-btn">Show toolbar</button>
+                    <button id="close-toolbar-btn">Hide toolbar</button>
+                    <button id="toc-menu-btn">ToC Dropdown menu</button>
+                    <button id="toc-default-btn">ToC default</button>
+                </div>
+                <div class="sunbmit"><button id="submit">Submit</button></div>
+                <div id="psgMsg">
+                    <p>文章标题</p>
+                    <input id="psgTitle" type="text">
+                    <p>作者</p>
+                    <input id="psgAuthor" type="text">
+                </div>
                 <div class="editormd" id="test-editormd">
                     <label>
-                    <textarea>
+                        <textarea>
                     </textarea>
                     </label>
                 </div>
-        </div>
-        <script src="./lib/zepto.min.js"></script>
-        <script src="./js/editormd.js"></script>
-        <script type="text/javascript">
-            var testEditor;
-            var jQuery = Zepto;  // 为了避免修改 flowChart.js 和 sequence-diagram.js 的源码，所以想支持 flowChart / sequenceDiagram 就得加上这一句
-
-            $(function() {
-                $.get("./test.md", function(md){
-                    testEditor = editormd("test-editormd", {
-                        width  : "90%",
-                        height : 720,
-                        path   : './lib/editor/',
-                        markdown : md,
-                        codeFold : true,
-                        searchReplace : true,
-                        saveHTMLToTextarea : true,    // 保存 HTML 到 Textarea
-                        //watch : false,
-                        htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
-                        emoji : true,
-                        taskList : true,
-                        tocm            : true,         // Using [TOCM]
-                        tex : true,                     // 开启科学公式 TeX 语言支持，默认关闭
-                        //previewCodeHighlight : false,  // 关闭预览窗口的代码高亮，默认开启
-                        flowChart : true,
-                        sequenceDiagram : true,         // 同上
-                        onload : function() {
-                            console.log("onload =>", this, this.id, this.settings);
+            </div>
+            <script src="./lib/zepto.min.js"></script>
+            <script src="./js/editormd.js"></script>
+            <script type="text/javascript">
+                function addPsg(data) {
+                    $.ajax({
+                        //请求方式
+                        type: "POST",
+                        //请求的媒体类型
+                        contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+                        //数据，json字符串
+                        url: "http://localhost/admin/blog/add",
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        data: data,
+                        success: function (msg) {
+                            console.info(msg);
+                            //跳转
+                            if (msg.code == 100) {
+                                var num=msg.data.blogId;
+                                window.alert("提交成功：id:"+num);
+                                window.location="./blog.html?id="+num;
+                            } else {
+                                window.location = "./error.html";
+                            }
+                        },
+                        failed: function(){
+                            window.alert("提交失败");
                         }
                     });
-                });
+                }
+                var testEditor;
+                var jQuery =Zepto; // 为了避免修改 flowChart.js 和 sequence-diagram.js 的源码，所以想支持 flowChart / sequenceDiagram 就得加上这一句
+                var textSubmit;
+                $(function () {
+                    $.get("./test.md", function (md) {
+                        testEditor = editormd("test-editormd", {
+                            width: "90%",
+                            height: 720,
+                            path: './lib/editor/',
+                            markdown: md,
+                            codeFold: true,
+                            searchReplace: true,
+                            saveHTMLToTextarea: true, // 保存 HTML 到 Textarea
+                            //watch : false,
+                            htmlDecode: "style,script,iframe|on*", // 开启 HTML 标签解析，为了安全性，默认不开启
+                            emoji: true,
+                            taskList: true,
+                            tocm: true, // Using [TOCM]
+                            tex: true, // 开启科学公式 TeX 语言支持，默认关闭
+                            //previewCodeHighlight : false,  // 关闭预览窗口的代码高亮，默认开启
+                            flowChart: true,
+                            sequenceDiagram: true, // 同上
+                            onload: function () {
+                                console.log("onload =>", this, this.id, this.settings);
+                            }
+                        });
+                    });
 
-                $("#show-btn").bind('click', function(){
-                    testEditor.show();
-                });
+                    $("#show-btn").bind('click', function () {
+                        testEditor.show();
+                    });
 
-                $("#hide-btn").bind('click', function(){
-                    testEditor.hide();
-                });
+                    $("#hide-btn").bind('click', function () {
+                        testEditor.hide();
+                    });
 
-                $("#get-md-btn").bind('click', function(){
-                    alert(testEditor.getMarkdown());
-                });
+                    $("#get-md-btn").bind('click', function () {
+                        alert(testEditor.getMarkdown());
+                    });
 
-                $("#get-html-btn").bind('click', function() {
-                    alert(testEditor.getHTML());
-                });
+                    $("#get-html-btn").bind('click', function () {
+                        alert(testEditor.getHTML());
+                    });
 
-                $("#watch-btn").bind('click', function() {
-                    testEditor.watch();
-                });
+                    $("#watch-btn").bind('click', function () {
+                        testEditor.watch();
+                    });
 
-                $("#unwatch-btn").bind('click', function() {
-                    testEditor.unwatch();
-                });
+                    $("#unwatch-btn").bind('click', function () {
+                        testEditor.unwatch();
+                    });
 
-                $("#preview-btn").bind('click', function() {
-                    testEditor.previewing();
-                });
+                    $("#preview-btn").bind('click', function () {
+                        testEditor.previewing();
+                    });
 
-                $("#fullscreen-btn").bind('click', function() {
-                    testEditor.fullscreen();
-                });
+                    $("#fullscreen-btn").bind('click', function () {
+                        testEditor.fullscreen();
+                    });
 
-                $("#show-toolbar-btn").bind('click', function() {
-                    testEditor.showToolbar();
-                });
+                    $("#show-toolbar-btn").bind('click', function () {
+                        testEditor.showToolbar();
+                    });
 
-                $("#close-toolbar-btn").bind('click', function() {
-                    testEditor.hideToolbar();
-                });
+                    $("#close-toolbar-btn").bind('click', function () {
+                        testEditor.hideToolbar();
+                    });
 
-                $("#toc-menu-btn").click(function(){
-                    testEditor.config({
-                        tocDropdown   : true,
-                        tocTitle      : "目录 Table of Contents",
+                    $("#toc-menu-btn").click(function () {
+                        testEditor.config({
+                            tocDropdown: true,
+                            tocTitle: "目录 Table of Contents",
+                        });
+                    });
+
+                    $("#toc-default-btn").click(function () {
+                        testEditor.config("tocDropdown", false);
+                    });
+                    $("#submit").bind('click',function () {
+                        var data = {
+                            blogContent: testEditor.getHTML(),
+                            blogTitle: document.getElementById("psgTitle").value,
+                            blogAuthor: document.getElementById("psgAuthor").value
+                        };
+                        console.debug(data);
+                        addPsg(data);
                     });
                 });
-
-                $("#toc-default-btn").click(function() {
-                    testEditor.config("tocDropdown", false);
-                });
-            });
-        </script>
-      </div>
-</div>
+            </script>
+        </div>
+    </div>
 
 </body>
 
