@@ -1,5 +1,7 @@
 function getInnerText(html) {
-
+    if(html==null){
+        html="";
+    }
     var con = html.replace("/\s*/g", ""); //去掉空格
     var res = con.replace("/<[^>]+>/g", ""); //去掉所有的html标记
     var res1 = res.replace("/↵/g", ""); //去掉所有的↵符号
@@ -11,7 +13,7 @@ function getInnerText(html) {
     return res2;
 }
 window.onload = function () {
-    var linkHead = "http://localhost";
+    var linkHead = "http://jirath.cn:8081/jirath_blog_2";
     var new_msg = {
         link: "./404.html",
         title: "unknow title",

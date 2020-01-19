@@ -1,5 +1,5 @@
 window.onload=function () {
-    var linkHead="http://localhost";
+    var linkHead="http://jirath.cn:8081/jirath_blog_2";
     function getQueryVariable(variable)
     {
         var query = window.location.search.substring(1);
