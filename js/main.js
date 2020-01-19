@@ -2,15 +2,12 @@ function getInnerText(html) {
     if(html==null){
         html="";
     }
-    var con = html.replace("/\s*/g", ""); //去掉空格
-    var res = con.replace("/<[^>]+>/g", ""); //去掉所有的html标记
-    var res1 = res.replace("/↵/g", ""); //去掉所有的↵符号
-    var res2 = res1.replace("/[\r\n]/g", "") //去掉回车换行
-    if (res2.length > 30) {
-        res2 = res2.substring(0, 30) + "..."
+    var dd=html.replace(/<\/?.+?>/g,"");
+    var dds=dd.replace(/ /g,"");//dds为得到后的内容
+    if (dds.length > 30) {
+        dds = dds.substring(0, 30) + "..."
     }
-
-    return res2;
+    return dds;
 }
 window.onload = function () {
     var linkHead = "http://jirath.cn:8081/jirath_blog_2";

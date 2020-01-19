@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jirath博客|文章</title>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/backGround.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="./lib/vue.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/blogList.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" style="left:0;">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="headSculpture">
+                <img src="img/sidebar/jirathHead.jpg" alt="">
+                <p>Jirath</p>
+            </div>
+            <div class="option">
+                <ul>
+                    <li>
+                        <p onclick="window.location='./index.html'">首页</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./main.html'">主页</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./allblog.html'">博客</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./me.html'">个人简介</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='https://me.csdn.net/weixin_44494373'">CSDN</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./photo.html'">图片集</p>
+                    </li>
+                    <li>
+                        <p onclick="window.location='./loginAdmin.html'">管理员登录</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 侧边栏按钮 -->
+        <button id="openSidebar"></button>
+        <!-- 内容区域 -->
+        <div class="root container">
+            <div class="row label">
+                <h1 class="row">JirathBlog|博客列表</h1>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="container" id="psg">
+                    <psg v-for="item in psgs" v-bind:psgmsg="item"></psg>
+                </div>
+                <div class="row align-items-center justify-content-around" id="page">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item" v-on:click="previous"  v-bind:style="displayLast"><a class="page-link" >Previous</a></li>
+                            <li class="page-item" v-on:click="before" v-bind:style="displayBefore"><a class="page-link">...</a></li>
+                            <li class="page-item" v-on:click="left"><a class="page-link">{{fri}}</a></li>
+                            <li class="page-item" v-on:click="mid" v-bind:style="display2"><a class="page-link" >{{sec}}</a></li>
+                            <li class="page-item" v-on:click="right" v-bind:style="display3"><a class="page-link" >{{thi}}</a></li>
+                            <li class="page-item" v-on:click="morePage" v-bind:style="displayMore"><a class="page-link">...</a></li>
+                            <li class="page-item" v-on:click="next"  v-bind:style="displayNext"><a class="page-link" >Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
